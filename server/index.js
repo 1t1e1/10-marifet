@@ -1,12 +1,17 @@
 var express = require("express");
-import cors from "cors";
-// var cors = require("cors");
+var cors = require("cors");
 var app = express();
+import data from "./data";
 
 app.use(cors());
 
 app.get("/:id", function(req, res, next) {
-    res.json({ msg: "This is CORS-enabled for all origins!" });
+    const result = data.find(el => el.id == req.params.id);
+    if (result === undefined) {
+        res.json({ response: "this is undefined" });
+    } else {
+        res.json({ response: result });
+    }
 });
 
 app.listen(3000, function() {
