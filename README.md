@@ -8,3 +8,5 @@ Kitaplardan alintilari yazarak hizlinizi olcmeyi saglar.
 `node.js` ile `express` ve `mongodb` kullanarak bana alintilari gonderen bir server yazacagim.
 
 ## Frontend
+
+`vue init webpack client` without testing.
