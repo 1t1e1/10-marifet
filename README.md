@@ -5,6 +5,6 @@ Kitaplardan alintilari yazarak hizlinizi olcmeyi saglar.
 
 ## Backend
 
-`node.js` ile `sqlite` ve `mongodb` kullanarak bana alintilari gonderen bir server yazacagim.
+`node.js` ile `express` ve `mongodb` kullanarak bana alintilari gonderen bir server yazacagim.
 
 ## Frontend
