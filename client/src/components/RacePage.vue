@@ -2,7 +2,7 @@
     <div class="onparmak">
         <p>{{ data }}</p>
         <p>{{ info }}</p>
-        <button @click="clicked">++</button>
+        <button @click="getRequest">++</button>
     </div>
 </template>
 
@@ -17,20 +17,23 @@ export default {
         };
     },
     mounted() {
-        axios
-            .get("http://localhost:3000/3")
-            .then(response => (this.info = response.data.response));
-        console.log("hell now");
+        this.getRequest();
     },
     methods: {
-        clicked: function() {
-            let maxId = 5;
+        getRequest: function() {
+            let maxId = 10;
             let randomId = Math.floor(Math.random() * maxId);
-            console.log("clickedd ,", randomId);
+            axios
+                .get("http://localhost:3000/" + randomId)
+                .then(response => (this.info = response.data.response))
+                .catch(err => {
+                    console.log(err);
+                });
         },
     },
 };
 </script>
 
+// https://codepen.io/callumacrae/pen/oyXXWR
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped></style>
