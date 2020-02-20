@@ -14,7 +14,7 @@ export default new Router({
             component: Deneme,
         },
         {
-            path: "/hello",
+            path: "/",
             name: "HelloWorld",
             component: HelloWorld,
         },
