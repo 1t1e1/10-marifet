@@ -1,13 +1,14 @@
 <template>
     <div class="onparmak">
         <div>
-            <p>This is training page</p>
+            <p>This is training page, race page</p>
         </div>
         <div v-if="info">
             <p>
                 {{ info.quote }}
             </p>
             <p> <span class="author"> {{info.author}} </span> said in <span class="book"> {{info.book}} </span> </p>
+
             <div> 
                 <input type="text" v-model="current" :placeholder="quoteArray[count]">
             </div>

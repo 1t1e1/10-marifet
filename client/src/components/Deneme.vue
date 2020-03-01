@@ -3,17 +3,20 @@
         <p>
             {{ data }}
         </p>
-
-        <p> home page</p>
+        <Istatistik />
     </div>
 </template>
 
 <script>
+import Istatistik from "./Istatistik";
 export default {
     name: "HelloWorld",
+    components: {
+        Istatistik,
+    },
     data() {
         return {
-            data: "hello word",
+            data: "Deneme Vue",
         };
     },
 };
@@ -35,5 +38,8 @@ li {
 }
 a {
     color: #42b983;
+}
+* {
+    background-color: blue;
 }
 </style>
