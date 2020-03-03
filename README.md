@@ -10,3 +10,7 @@ Kitaplardan alintilari yazarak hizlinizi olcmeyi saglar.
 ## Frontend
 
 `vue init webpack client` without testing.
+
+## Yapilacaklar
+
+kelimelerisatir sonunda bolmesi sorununu duzelt.

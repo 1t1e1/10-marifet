@@ -5,26 +5,31 @@
             <hr />
         </div>
         <div v-if="info">
-            <p>first view</p>
-            <p>
-                {{ info.quote }}
-            </p>
-            <br />
-            <p>second view</p>
+            <div>
+                <p v-for="index in numOfRow" :key="'col' + index">
+                    <!-- debug icin  -->
+                    <!-- {{ calculateWordPlace(index, j) }} -->
+                    <!-- "({{ index }},{{ j }})" -->
+                    <span
+                        v-for="j in longOfRow"
+                        :class="styleMethod(calculateWordPlace(index, j))"
+                        :key="'word' + calculateWordPlace(index, j)"
+                        >{{ quoteArray[calculateWordPlace(index, j)] }}</span
+                    >
+                </p>
+                <p>
+                    <span
+                        v-for="i in remainInRow"
+                        :class="styleMethod(calculateWordPlace(longOfRow, i))"
+                        :key="'word' + calculateWordPlace(longOfRow, i)"
+                        >{{
+                            quoteArray[calculateWordPlace(numOfRow + 1, i)]
+                        }}</span
+                    >
+                </p>
+            </div>
 
-            <p>
-                <span
-                    v-for="(word, index) in quoteArray"
-                    :key="word + index"
-                    :class="styleMethod(index)"
-                    >{{ word }}
-                </span>
-            </p>
-            <br />
-            <p>
-                <span class="author"> {{ info.author }} </span> said in
-                <span class="book"> {{ info.book }} </span>
-            </p>
+            <hr />
 
             <div>
                 <input
@@ -42,6 +47,10 @@
         <br />
         <button @click="getRequest">Degistir</button>
         <button @click="count++">count Arti</button>
+        <p>
+            <span class="author"> {{ info.author }} </span> said in
+            <span class="book"> {{ info.book }} </span>
+        </p>
     </div>
 </template>
 
@@ -54,6 +63,7 @@ export default {
             info: "",
             current: "",
             count: 4,
+            longOfRow: 45,
         };
     },
     mounted() {
@@ -61,7 +71,14 @@ export default {
     },
     computed: {
         quoteArray: function() {
-            return this.info.quote.split(" ");
+            return this.info.quote.split("");
+        },
+
+        remainInRow: function() {
+            return this.quoteArray.length % this.longOfRow;
+        },
+        numOfRow: function() {
+            return Math.floor(this.quoteArray.length / this.longOfRow);
         },
     },
     methods: {
@@ -86,6 +103,9 @@ export default {
                 return "willwrite";
             }
         },
+        calculateWordPlace(i, j) {
+            return (i - 1) * this.longOfRow + j - 1;
+        },
     },
 };
 </script>
@@ -107,6 +127,10 @@ export default {
     color: white;
     border: 2px solid black;
     border-radius: 5px;
+}
+p {
+    font-size: 18px;
+    line-height: 0.6;
 }
 
 .didwrite {
