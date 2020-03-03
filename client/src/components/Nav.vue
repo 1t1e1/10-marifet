@@ -1,5 +1,6 @@
 <template>
     <div>
+        <header ></header>
         <nav>
             <router-link
                 v-for="link in links"
@@ -47,5 +48,13 @@ export default {
 
 nav {
     background-color: aqua;
+    font-size: 22px;
+}
+
+header {
+    background-color: #2e354f;
+    color: #fff;
+    padding: 45px 0;
+    font-size: 60px;
 }
 </style>
